@@ -1,0 +1,26 @@
+problem18
+anagram palindrome geeksforgeeks
+solution:
+
+class Sol
+{
+    int isPossible (String S)
+    {
+        // your code here
+        HashMap<Character,Integer> h=new HashMap<>();
+        for(int i=0;i<S.length();i++){
+            if(h.containsKey(S.charAt(i))){
+                h.remove(S.charAt(i));
+            }
+            else{
+                h.put(S.charAt(i),i);
+            }
+        }
+        if(h.size()<=1){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+}
