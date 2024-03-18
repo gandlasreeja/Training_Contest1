@@ -1,0 +1,23 @@
+Problem 12
+Trapping Rain Water leetcode:
+Solution:
+
+class Solution {
+    public int trap(int[] height) { //height is the given input array
+        int[] leftmax=new int[height.length];
+        int[] rightmax=new int[height.length];
+        leftmax[0]=height[0];
+        rightmax[height.length-1]=height[height.length-1];
+        int res=0;
+        for(int i=1;i<height.length;i++){
+            leftmax[i]=Math.max(leftmax[i-1],height[i]);
+        }
+        for(int i=height.length-2;i>=0;i--){
+            rightmax[i]=Math.max(rightmax[i+1],height[i]);
+        }
+        for(int i=1;i<height.length-1;i++){
+            res=res+Math.min(leftmax[i],rightmax[i])-height[i];
+        }
+        return res;
+    }
+}
