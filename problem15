@@ -1,0 +1,21 @@
+problem15
+power of four leetcode
+solution
+
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        if(n==1 || n==4){
+            return true;
+        }
+        if(n%4!=0){
+            return false;
+        }
+        int k=n/4;
+        for(int i=0;i<k;i++){
+            if(Math.pow(4,i)==n){
+                return true;
+            }
+        }
+        return false;
+    }
+}
